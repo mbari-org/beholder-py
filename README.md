@@ -1,6 +1,6 @@
 # beholder-py
 
-Python client library for beholder.
+Python client library for [beholder](https://github.com/mbari-org/beholder).
 
 ## Build
 
