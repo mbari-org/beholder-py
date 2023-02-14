@@ -1,7 +1,7 @@
 from io import BytesIO
 from PIL import Image
 
-from beholder.ops import capture
+from beholder_client.ops import capture
 
 
 class BeholderClient:

@@ -1,7 +1,10 @@
 [tool.poetry]
-name = "beholder"
+name = "beholder_client"
 version = "0.1.0"
 description = "Python client library for beholder."
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/mbari-org/beholder-py"
 authors = ["Kevin Barnard <kbarnard@mbari.org>"]
 
 [tool.poetry.dependencies]
