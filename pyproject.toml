@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "beholder_client"
-version = "0.3.0"
+version = "0.3.1"
 description = "Python client library for beholder."
 readme = "README.md"
 license = "MIT"

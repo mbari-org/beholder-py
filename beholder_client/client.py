@@ -9,14 +9,16 @@ class BeholderClient:
     Beholder API client.
     """
 
-    def __init__(self, base_url: str, x_api_key: str):
+    def __init__(self, base_url: str, x_api_key: str, timeout_seconds: float = 10.0):
         """
         Args:
             base_url: Base URL of the Beholder server.
             x_api_key: Beholder API key.
+            timeout_seconds: Timeout for requests in seconds.
         """
         self._base_url = base_url.rstrip("/")
         self._x_api_key = x_api_key
+        self.timeout_seconds = timeout_seconds
 
     def capture_raw(self, video_url: str, elapsed_time_millis: int) -> bytes:
         """
@@ -29,7 +31,13 @@ class BeholderClient:
         Returns:
             Raw bytes of the image.
         """
-        return capture(self._base_url, video_url, elapsed_time_millis, self._x_api_key)
+        return capture(
+            self._base_url,
+            video_url,
+            elapsed_time_millis,
+            self._x_api_key,
+            timeout_seconds=self.timeout_seconds,
+        )
 
     def capture(self, video_url: str, elapsed_time_millis: int) -> Image.Image:
         """
@@ -59,7 +67,11 @@ class BeholderClient:
             Raw bytes of the image.
         """
         return await capture_async(
-            self._base_url, video_url, elapsed_time_millis, self._x_api_key
+            self._base_url,
+            video_url,
+            elapsed_time_millis,
+            self._x_api_key,
+            timeout_seconds=self.timeout_seconds,
         )
 
     async def capture_async(
